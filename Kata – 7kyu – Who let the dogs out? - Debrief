@@ -1,0 +1,90 @@
+Best Practices Code:
+
+var BARK  = 'woof woof';
+var SLEEP = 'zzzzzzzzz....';
+
+function dog_bark_by_default(bark = true){
+  return bark ? BARK : SLEEP;
+}
+
+function dog_bark_only_if_told_so(bark){
+  return bark ? BARK : SLEEP;
+}
+
+function dog_dont_bark_by_default(dont_bark = true){
+  return dont_bark ? SLEEP : BARK;
+}
+
+function dog_dont_bark_only_if_told_so(dont_bark){
+  return dont_bark ? SLEEP : BARK;
+}
+
+
+Debrief:
+
+First, I needed to understand exactly what was going on with the || lines. 
+Essentially what is going on is this is an older way that programmers used to set a default parameter on a line. 
+Whenever someone calls a function but does not pass it an argument when the function takes an argument, 
+the argument defaults to be set to undefined. 
+However, sometimes you want to provide it a default value so if nothing is passed, the value is set to something.
+
+Before, people needed to do this by providing a line of code in the body of the function before any of the code executes. 
+Example - 
+
+function multiply(a, b) {
+  b = (typeof b !== 'undefined') ?  b : 1;
+  return a * b;
+}
+
+multiply(5, 2); // 10
+multiply(5, 1); // 5
+multiply(5);    // 5
+
+
+The code  
+
+b = (typeof b !== 'undefined') ?  b : 1; 
+
+first checks using the ternary operator to determine if the value of b is defined (so a value was passed to it) or undefined (so nothing was passed to it)
+It does this by first checking if the value type in the b variable is NOT undefinied. 
+If that statement is true, then the value of b is definied (so a value was passed to it) and it retains this value
+If the statement is false, then the value of b is undefined (so a value was not passed to it) and it is set to the value of 1
+
+The method used in the previous code 
+
+var value = value || DEFAULT_VALUE
+
+Uses the OR statement to try to perform the same option. 
+The way the OR statemnet works is that if one of the two values is true, then the whole thing is true. 
+So, the first value is checked to see if is true. If it is, then the whole thing is true (since at least one value is true) and it returns the first value. 
+If the first value is false, then the second value is returned. Why? Because since the first value was found to be false, whether or not the whole thing is true depends on the second value. 
+If it is true, then the whole thing is true. If it is false, then the whole thing is false.
+
+The way it works to provide a default value is that the value is first checked to see if it is true or false (undefined, being considered false). 
+If it is true, then the first value of the boolean is returned. If it is false then then the second value of the boolean is returned.
+
+The problem with this is that if the value that is passed to it is "falsey" (ex, '', null, or 0), then the default value is returned instead of the falsey value you wanted to explicitly pass it
+
+The solution comes from ES6 – now you can set a default value for the parameter in the following way 
+
+function multiply(a, b = 1) {
+  return a * b;
+}
+
+multiply(5, 2); // 10
+multiply(5, 1); // 5
+multiply(5);    // 5
+In this instance, b is a parameter that is given a default value of 1 in the function head. 
+If another argument is provided for b, then b becomes that value. If not, it defaults to 1. 
+The nice thing about this is it is shorter, allows for 0 and other falsey methods, and is clearer.
+
+Cited Sources:
+“Be careful when using || to set default values in JavaScript 08 JULY 2015”
+http://www.codereadability.com/javascript-default-parameters-with-or-operator/
+
+“Default parameters”
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
+
+“What does the construct x = x || y mean?”
+https://stackoverflow.com/questions/2802055/what-does-the-construct-x-x-y-mean
+
