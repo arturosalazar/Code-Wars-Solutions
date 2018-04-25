@@ -1,4 +1,4 @@
-//Best Practices Code
+Best Practices Code:
 
 function opposite(number){
   return(-number)
