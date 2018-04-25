@@ -1,6 +1,4 @@
-
-
-// My Code
+// My Solution
 
 function opposite(number){
   return -1*Number(number)
