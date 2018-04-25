@@ -1,0 +1,14 @@
+//Best Practices Code
+
+function opposite(number){
+  return(-number)
+}
+
+Debrief:
+The opposite of a number is it’s negative (if its positive) or its positive (if it’s negative). The way to get the opposite is to multiply by -1
+
+My method and the best practices method are essentially the same. The only difference is that my method utilizes a more explicit (and wordy) technique to do the same. Instead of returning (-1 * Number(number)), I could have just returned (-number)
+
+Why does this work? My method explicitly coerces whatever argument is passed into a number, and then multiplies that by -1
+
+The other method simply multiplies whatever argument is passed by -1, and this action implicitly coerces whatever is passed into a number.
