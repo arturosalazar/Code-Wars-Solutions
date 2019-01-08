@@ -9,5 +9,5 @@
 */
 
 function opposite(number){
-  return -Number(number);
+  return -1 * Number(number);
 }
