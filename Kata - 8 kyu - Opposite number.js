@@ -1,5 +1,5 @@
 /*
-	Instructions from CodeWars:
+Instructions from CodeWars:
   Very simple, given a number, find its opposite.
   Examples:
   1: -1
