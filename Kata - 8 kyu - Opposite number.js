@@ -8,9 +8,6 @@
   But can you do it in 1 line of code and without any conditionals?
 */
 
-
-// My Solution
-
 function opposite(number){
   return -Number(number);
 }
