@@ -5,7 +5,7 @@
 	var value = value || DEFAULT_VALUE
 
 	And so i did. But something is wrong, and I don't know why. Can you help me out?
-
+ 
 Starting Code:
 
 var BARK  = 'woof woof';
