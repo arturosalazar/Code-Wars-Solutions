@@ -1,0 +1,29 @@
+Orig Date: 4/17/18
+Best Practices Code:
+
+function findNeedle(haystack) {
+  return "found the needle at position " + haystack.indexOf("needle");
+}
+
+Debrief:
+This was a fun one. I think it's interesting that I can conceptually know all of these pieces and techniques (arrays, forEach, boolean expressions) - but once it gets time to actually implement them, it's like I don't know anything. I think the key is that I need to practice actually using these techniques in a problem solving context. It does feel really nice when something clicks and I remember how to do something. 
+
+This time, the problem was that I was thinking a little too high level. I was thinking 'how do I search through an array?'. It's actually a pretty good start, , BUT I felt lost because I didn't break it down/simplify it a level lower. Namely - can I write a function that will check if an item === what I'm looking for ('needle') and then iterate it over the whole array.
+
+I googled array to get to the MDN page and saw the forEach function mentioned. Right when that happened it clicked and I started building that out and got to an answer. Maybe I need to try to practice stepping through what would need to happen before trying to code?? 
+
+Comparison to between my code and best practices - this one used indexOf to locate this function. How does it work?
+
+arr.indexOf(searchElement[, fromIndex])
+
+The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+So in this instance - it will search for the first argument passed and then will return the index of that element. This works very nicely in that we do NOT need to search through each item in turn. This tiny function does it for us and stops when it finds the first item.
+
+Just for your own understanding - if there are two or more of the search item, this will only return the first one. HOWEVER you can use a second argument (fromIndex) to tell indexOf where to start searching so it will skip past the first one
+
+function findNeedle(haystack) {
+  return "found the needle at position " + haystack.indexOf("needle");
+}
+
+Also note - if it doesn't find the item, it returns -1 
