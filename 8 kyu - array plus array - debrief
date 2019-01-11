@@ -1,0 +1,93 @@
+Orig Date: 4/17/18
+
+Best Practice solution:
+function arrayPlusArray(arr1, arr2) {
+  return arr1.concat(arr2).reduce((acc, cur) => acc + cur, 0);
+}
+
+Debrief:
+Wow, just wow - I was pretty impressed by how two techniques (concat and reduce) could be used to do the same thing as my previous attempt but make it SO MUCH SMALLER
+
+Ok so what I did - basically I used forEach to go over each item and add it one by one to a variable sum that would hold on to the data.
+
+I'd say that's a pretty ok way to do it. It takes more text to work, but I think it's pretty clear what's going on. We start with 0, then we add each array item to it until we get the final number. Then we return that final number.
+
+The best practice option is more elegant in terms of how it works, although it works under a similar principle.
+
+In plaintext - first it will take the two arrays and combine them into one (concat), THEN it adds up all the items in the combined array and reduces them to a single number (reduce), and returns that. 
+
+First - concat
+
+"The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array."
+
+Syntax: var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+
+example: arr1.concat(arr2)
+
+This takes arr2 and combines it with arr1 to make a new array that contains all the elements of 
+arr1 and arr2. It will return this array, which we can then assign to a variable (if we wnated to) or can simply return it.
+
+Second - reduce
+
+"The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value."
+
+Go through each element of the array and return a single value based on the function applied and how it wants to handle the collected value of the array as it runs and each new element
+
+
+Syntax: arr.reduce(callback[, initialValue])
+
+FROM MDN 
+Parameters
+callback
+	Function to execute on each element in the array, taking four arguments:
+
+accumulator
+	The accumulator accumulates the callback's return values; it is the accumulated value previously returned in the last invocation of the callback, or initialValue, if supplied (see below).
+
+currentValue
+	The current element being processed in the array.
+currentIndex (Optional)
+	The index of the current element being processed in the array. Starts at index 0, if an initialValue is provided, and at index 1 otherwise.
+
+array(Optional)
+The array reduce() was called upon.
+
+initialValue(Optional)
+Value to use as the first argument to the first call of the callback. If no initial value is supplied, the first element in the array will be used. Calling reduce() on an empty array without an initial value is an error.
+NOTE: for this reason we want to provide an initial value of 0 so that is has a value to call 
+if both arrays are empty. Just a way to CYA if a corner case occurs
+
+
+Return value
+The value that results from the reduction.
+
+Example MDN ------
+var sum = [0, 1, 2, 3].reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 0);
+// sum is 6
+
+What is going on? We call reduce on an array. Reduce's argument is a function that takes two arguments, accumulator and currentValue
+the accumulator (which is a variable to contain the value of the array as the elements are added)
+the current Value (which is the current value of the element we are on as this runs)
+The funciton returns the value of the accumulator (the collected value of the previous elements as added or subtraced or whatever) and the current value 
+
+so this would return the addition of each element to each other
+
+an alternative way (functionally same just using different syntax) is 
+
+var total = [ 0, 1, 2, 3 ].reduce(
+  ( accumulator, currentValue ) => accumulator + currentValue,
+  0
+);
+
+This just uses the arrow function to say the same thing
+
+example: .reduce((acc, cur) => acc + cur, 0)
+
+all that's happening is that we take the combined array and we are adding the elements together into a single variable that is what will get returned.
+
+
+Cited Sources: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
