@@ -1,0 +1,20 @@
+Orig Date: 4/19/18
+
+Best Practice:
+function animal(obj){
+  return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+}
+
+Debrief:
+
+The best practices version makes use of a really nice feature called template literals
+
+It allows you to create strings using backticks (`) instead of single (') or double (") quotes
+
+The nice feature of using template literals is that you can use placeholders ${} that you can use in template literals 
+that allow you to "nest a variable inside a string without doing concatenation using the + operator"
+
+Cited Pages 
+https://stackoverflow.com/questions/35835362/what-does-dollar-sign-and-curly-braces-mean-in-a-string-in-javascript
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
