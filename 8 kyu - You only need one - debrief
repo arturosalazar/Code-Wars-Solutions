@@ -1,0 +1,43 @@
+Orig Date: 4/24/18
+
+Best Practice:
+
+function check(a,x){
+  return a.includes(x);
+}; 
+
+Debrief:
+
+From MDN 
+
+"The includes() method determines whether an array includes a certain element, returning true or false as appropriate. It uses the sameValueZero algorithm to determine whether the given element is found."
+
+
+
+This is pretty cool - I did this whole big thing where I check to see if an array contains a variable by running forEach over the whole thing.
+
+
+
+IN FACT - there is a method that will check an array to see if it includes whatever you pass to includes()
+
+From MDN (again)
+"
+Syntax 
+  arr.includes(searchElement[, fromIndex])
+
+Parameters
+  searchElement
+    The element to search for.
+  fromIndex (Optional)
+    The position in this array at which to begin searching for searchElement. A negative value searches from the index of array.length - fromIndex by asc. Defaults to 0.
+
+Return value
+  A Boolean.
+"
+
+Neat
+
+Cited Sources:
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+
