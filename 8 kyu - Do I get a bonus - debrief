@@ -1,0 +1,22 @@
+Orig Date: 4/24/18
+
+Best Practice:
+ function bonusTime(salary, bonus) {
+  return bonus ? `£${10 * salary}` : `£${salary}`;
+ } 
+
+Debrief:
+
+My first two attempts are essentially the same. What I like about the second is that its nice and clean
+
+First, it uses a ternary operator to do if...else
+
+Next, it uses template literal to have placeholders for Salary
+
+I found out that template literals can actually hold not just a variable, but also mathematical operations, which cleaned
+things up nicely. My refactored solution it uses a ternary operator to check if/else then displays the salary either
+multiplied by 10 (if true) or just the salary(if false)
+
+Even better - the best practices is very close to mine except I use salary * = 10 while best practices uses 10 * salary
+
+The neatest thing is finding out I can use mathematical operations in template literal placeholders :D
