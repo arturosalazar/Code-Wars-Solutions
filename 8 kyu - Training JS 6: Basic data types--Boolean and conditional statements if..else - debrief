@@ -1,0 +1,24 @@
+Orig Date: 4/24/18
+
+
+Best Practice - 
+function trueOrFalse(val){
+  return Boolean(val).toString();
+} 
+
+Debrief - 
+This one was a little weird - it already solved itself...which was kinda a bummer.
+
+However there were some interesting things for me to note. In particular, how to write a boolean statement that can check 
+for multiple possibilities
+You can use the || operator (OR operator) to separate different boolean tests like val === false or val === null
+That way, if either of these are true, then the whole thing returns to true
+
+You can also use the && operator in the same way except in this instance, EACH side of the operator has to be true for 
+the whole thing to return true 
+
+
+I thought the best practices one looks nice
+It takes the value and coerces it explicitly into a boolean value using the Boolean() object wrapper 
+THEN it runs the toString(); method on that value, which takes the boolean and returns either "true" or "false",
+which is exactly what the requirements were. Very clean and nice.
